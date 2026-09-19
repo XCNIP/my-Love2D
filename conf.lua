@@ -1,3 +1,12 @@
+--[[
+    Love2D project configuration.
+    Sets the window properties, save identity, and general engine settings
+    for the game.
+    
+    Official reference: https://www.love2d.org/wiki/Config_Files
+    This file is loaded by LOVE before the game starts and allows you to
+    configure window behavior, persistence, modules, and other engine options.
+--]]
 function love.conf(t)
     t.identity = "data/saves"
     -- t.version  = "0.1"
@@ -16,4 +25,5 @@ function love.conf(t)
     t.window.minheight = 500
     t.window.x = 200
     t.window.x = 500
+    t.modules.timer = false -- The timer default is true
 end
