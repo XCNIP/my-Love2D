@@ -1,0 +1,16 @@
+0 verbose cli /usr/local/node/bin/node /usr/bin/npm
+1 info using npm@11.19.0
+2 info using node@v24.21.0
+3 silly config load:file:/usr/local/node/lib/node_modules/npm/npmrc
+4 silly config load:file:/home/daidai/.npmrc
+5 silly config load:file:/home/daidai/ProgramLanguage/Lua/Love2D/node_global/etc/npmrc
+6 verbose title npm prefix
+7 verbose argv "prefix" "--global"
+8 verbose logfile logs-max:10 dir:/home/daidai/ProgramLanguage/Lua/Love2D/node_cache/_logs/2026-09-20T11_27_37_994Z-
+9 verbose logfile /home/daidai/ProgramLanguage/Lua/Love2D/node_cache/_logs/2026-09-20T11_27_37_994Z-debug-0.log
+10 verbose cwd /home/daidai/ProgramLanguage/Lua/Love2D
+11 verbose os Linux 6.12.107+deb13-amd64
+12 verbose node v24.21.0
+13 verbose npm  v11.19.0
+14 verbose exit 0
+15 info ok
