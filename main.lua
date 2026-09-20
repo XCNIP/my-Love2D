@@ -18,6 +18,7 @@ function love.load()
     pacman.y = 200
     pacman.size = 100
     pacman.eat = false
+    pacman.speed = 2
     love.graphics.setBackgroundColor(.3, .5, .5)
     _G.food = {
         x     = 600,
@@ -28,7 +29,18 @@ function love.load()
 end
 
 function love.update(dt)
-    pacman.x = pacman.x + 2
+    if love.keyboard.isDown("a") then
+        pacman.x = pacman.x - 1
+    end
+    if love.keyboard.isDown("d") then
+        pacman.x = pacman.x + 1
+    end
+    if love.keyboard.isDown("w") then
+        pacman.y = pacman.y - 1
+    end
+    if love.keyboard.isDown("s") then
+        pacman.y = pacman.y + 1
+    end
     if pacman.x >= food.x + 50 then
         food.eaten = true
     end
