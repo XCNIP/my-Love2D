@@ -20,8 +20,9 @@ function love.load()
     pacman.eat = false
     pacman.speed = 2
     pacman.rotation = 0
-    pacman.angle1 = 3.14 * 30 / 180 + pacman.rotation
-    pacman.angle2 = 3.14 * 330 / 180 + pacman.rotation
+    pacman.flashTick = 7
+    pacman.angle1 = math.pi * 30 / 180 + pacman.rotation
+    pacman.angle2 = math.pi * 330 / 180 + pacman.rotation
     love.graphics.setBackgroundColor(.3, .5, .5)
     _G.food = {
         x     = 600,
@@ -35,10 +36,10 @@ end
 
 function love.update(dt)
     if love.keyboard.isDown("down") then
-        pacman.rotation = (pacman.rotation + 3.14/180) % 6.18 
+        pacman.rotation = (pacman.rotation + 3.14/180) % (2 * math.pi)
     end
     if love.keyboard.isDown("up") then
-        pacman.rotation = (pacman.rotation - 3.14/180) % 6.18 
+        pacman.rotation = (pacman.rotation - 3.14/180) % (2 * math.pi) 
     end
     if love.keyboard.isDown("a") then
         pacman.x = pacman.x - 1
@@ -58,7 +59,7 @@ function love.update(dt)
     
     _G.tick = tick + 1
 
-    if tick >= 10 then
+    if tick >= pacman.flashTick then
         _G.tick = 0
         if _G.flag == false then
             _G.flag = true
@@ -66,8 +67,8 @@ function love.update(dt)
             pacman.angle2 = 10
         else
             _G.flag = false
-            pacman.angle1 = 3.14 * 30 / 180 + pacman.rotation
-            pacman.angle2 = 3.14 * 330 / 180 + pacman.rotation
+            pacman.angle1 = math.pi * 40 / 180 + pacman.rotation
+            pacman.angle2 = math.pi * 320 / 180 + pacman.rotation
         end
     end
 end
