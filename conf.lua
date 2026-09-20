@@ -9,7 +9,7 @@
 --]]
 function love.conf(t)
     t.identity = "data/saves"
-    t.version  = "0.1"
+    t.version  = "0.0.1"
     t.console = false
     t.externalstorage = true
     t.gammacorrect = true
