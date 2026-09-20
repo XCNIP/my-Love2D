@@ -8,13 +8,13 @@
     configure window behavior, persistence, modules, and other engine options.
 --]]
 function love.conf(t)
-    t.identity = "data/saves"
+    --t.identity = "data/saves"
     -- t.version  = "0.0.2"
     t.console = false
     t.externalstorage = true
     t.gammacorrect = true
     t.window.title = "Stupid game"
-    t.window.icon = "icon/love-app-icon.png"
+    -- t.window.icon = "/icon/love-app-icon.png"
     t.window.width = 1200
     t.window.height = 700
     t.window.resizable = true
