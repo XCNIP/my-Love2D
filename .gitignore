@@ -1,1 +1,3 @@
-/sprite
+sprites/
+.vscode/
+node_cache/
