@@ -25,5 +25,5 @@ function love.conf(t)
     t.window.minheight = 500
     t.window.x = 200
     t.window.x = 500
-    t.modules.timer = false -- The timer default is true
+    t.modules.timer = true -- The timer default is true
 end
