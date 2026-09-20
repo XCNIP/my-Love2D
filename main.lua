@@ -43,7 +43,9 @@ function love.load()
 end
 
 function love.update(dt)
-
+    if not coki.animation.idle then 
+        
+    end
 end
 
 function love.draw()
