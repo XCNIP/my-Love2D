@@ -1,6 +1,6 @@
 local love = require "love"
 
-function enemy()
+function enemy(_level)
     local dice = math.random(1, 4)
     local _x, _y
     local _radius = 20
@@ -20,7 +20,7 @@ function enemy()
     end
 
     return {
-        level = 2,
+        level = _level or 1,
         radius = 20,
         x = _x,
         y = _y,
@@ -42,7 +42,7 @@ function enemy()
         end,
 
         draw = function (self)
-            love.graphics.setColor(0, 0, 0)
+            love.graphics.setColor(.6, .3, .3)
 
             love.graphics.circle("fill", self.x, self.y, self.radius)
 

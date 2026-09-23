@@ -12,7 +12,9 @@ local game = {
         paused  = true,
         running = false,
         ended = false
-    }
+    },
+    points = 0,
+    levels = {15, 30, 60, 120}
 }
 
 local player = {
@@ -34,30 +36,55 @@ local buttons = {
 
 local enemies = {}
 
+function starNewGame()
+    game.state["menu"] = false
+    game.state["running"] = true
+
+    game.points = 0
+    
+    enemies = {
+        enemy(1),
+    }
+end
+
+function love.mousepressed(x, y, button, istouch, presses)
+-- this is a callback function
+-- when the mouse button is pressed, this function will be called
+    if not game.state["running"] then
+        if button == 1 then
+            if game.state["menu"] then
+                for index in pairs(buttons.menu_stats) do
+                    buttons.menu_stats[index]:checkPreesed(x, y, player.radius)
+                end
+            end
+        end
+    end
+end
+
 function love.load()
     love.window.setTitle("Save the ball")
     -- Sets the current visibility of the cursor. 
     love.mouse.setVisible(false)
     
-    buttons.menu_stats.palygame = button("Play game", nil, nil, 150, 50)
+    buttons.menu_stats.palygame = button("Play game", starNewGame, nil, 150, 50)
     buttons.menu_stats.settings = button("Settings", nil, nil, 150, 50)
     buttons.menu_stats.exit = button("Exit", love.event.quit, nil, 150, 50)
 
-    -- Creat enemy array
-    for i = 1, 2 do 
-        table.insert(enemies, i, enemy()) --test
-    end
 end
+
+
 
 function love.update(dt)
     -- x, y = love.mouse.getPosition()
     -- Returns the current position of the mouse. 
     player.x , player.y = love.mouse.getPosition()
     
-    for i = 1, #enemies do
-        enemies[i]:move(player.x, player.y)
+    if game.state["running"] then
+        for i = 1, #enemies do
+            enemies[i]:move(player.x, player.y)
+        end
     end
-    
+
     log()
 end
 

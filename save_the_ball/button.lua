@@ -4,18 +4,27 @@ function button(text, func, func_param, width, height)
     return {
         width = width or 100,
         height = height or 100,
-        func = func or function () print("This button has no function attached.") end,
+        func = func or function () print("\nThis button has no function attached.\n") end,
         func_param = func_param,
         text = text or "No text.",
         button_x = 0,
         button_y = 0,
         text_x = 0,
         text_y = 0,
+
         checkPreesed = function (self, mouse_x, mouse_y, cursor_radius)
             if (mouse_x + cursor_radius >= self.button_x) 
             and (mouse_x - cursor_radius <= self.button_x + self.width) then -- NOTE check the
             -- mouse position
-                
+                if (mouse_y + cursor_radius >= self.button_y) 
+                and (mouse_y - cursor_radius <= self.button_y + self.height) then
+            -- mouse position
+                    if self.func_param then -- when then func_param not nil
+                        self.func(self.func_param)
+                    else
+                        self.func()
+                    end
+                end
             end
         end, -- end checkPreesed()
 
